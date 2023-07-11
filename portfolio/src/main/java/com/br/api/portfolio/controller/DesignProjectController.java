@@ -3,9 +3,12 @@ package com.br.api.portfolio.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.br.api.portfolio.model.DesignProject;
 import com.br.api.portfolio.service.DesignProjectService;
 
 @RestController
@@ -18,6 +21,11 @@ public class DesignProjectController {
     @GetMapping("insert")
     public String insertDesign() {
         return "Inserir um projeto de design";
+    }
+
+    @PostMapping("insert")
+    public ResponseEntity<?> insert(@RequestBody DesignProject designProject) {
+        return designService.insert(designProject);
     }
 
     @GetMapping("list")

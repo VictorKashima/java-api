@@ -12,6 +12,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
@@ -22,6 +23,7 @@ public class DesignProject {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     
+    @NotEmpty(message = "Insira um nome")
     private String name;
     
     @CreatedDate
