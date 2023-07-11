@@ -22,10 +22,10 @@ public class DesignProject {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
+
     @NotEmpty(message = "Insira um nome")
     private String name;
-    
+
     @CreatedDate
     private LocalDateTime createdAt;
     @LastModifiedDate
