@@ -25,6 +25,12 @@ public class DesignProject {
 
     @NotEmpty(message = "Insira um nome")
     private String name;
+    
+    @NotEmpty(message = "Insira uma descrição")
+    private String description;
+
+    @NotEmpty(message = "Insira um link")
+    private String link;
 
     @CreatedDate
     private LocalDateTime createdAt;
@@ -47,6 +53,22 @@ public class DesignProject {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public void setLink(String link) {
+        this.link = link;
     }
 
     public LocalDateTime getCreatedAt() {
