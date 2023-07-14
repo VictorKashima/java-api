@@ -22,4 +22,18 @@ public class DesignProjectService {
         return new ResponseEntity<>(designRepository.findAll(), HttpStatus.OK);
     }
 
+    public ResponseEntity<?> updateById(DesignProject designProject) {
+        if(designRepository.countById(designProject.getId()) == 0) {
+            return new ResponseEntity<>("Projeto não encontrado", HttpStatus.NOT_FOUND);
+        } else if(designProject.getName().equals("")) {
+            return new ResponseEntity<>("Informe um nome", HttpStatus.BAD_REQUEST);
+        } else if(designProject.getDescription().equals("")) {
+            return new ResponseEntity<>("Adicione uma descrição", HttpStatus.BAD_REQUEST);
+        } else if(designProject.getLink().equals("")) {
+            return new ResponseEntity<>("Adicione um link", HttpStatus.BAD_REQUEST);
+        } else {
+            return new ResponseEntity<>(designRepository.save(designProject), HttpStatus.OK);
+        }
+    }   
+
 }
