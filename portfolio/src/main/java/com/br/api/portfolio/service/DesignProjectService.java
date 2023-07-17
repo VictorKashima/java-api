@@ -34,6 +34,16 @@ public class DesignProjectService {
         } else {
             return new ResponseEntity<>(designRepository.save(designProject), HttpStatus.OK);
         }
-    }   
+    }
+
+    public ResponseEntity<?> deleteById(int id) {
+        if(designRepository.countById(id) == 0) {
+            return new ResponseEntity<>("Projeto não encontrado", HttpStatus.NOT_FOUND);
+        } else {
+            DesignProject designDeletado = designRepository.findById(id);
+            designRepository.delete(designDeletado);
+            return new ResponseEntity<>("Projeto " + designDeletado.getName() + " deletado com sucesso!", HttpStatus.OK);
+        }
+    }
 
 }
