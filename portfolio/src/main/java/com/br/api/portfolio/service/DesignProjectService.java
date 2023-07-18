@@ -42,7 +42,7 @@ public class DesignProjectService {
         } else {
             DesignProject designDeletado = designRepository.findById(id);
             designRepository.delete(designDeletado);
-            return new ResponseEntity<>("Projeto " + designDeletado.getName() + " deletado com sucesso!", HttpStatus.OK);
+            return new ResponseEntity<>(HttpStatus.OK);
         }
     }
 
